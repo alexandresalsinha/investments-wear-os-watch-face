@@ -43,32 +43,5 @@
                     weight="THIN" />
             </TimeText>
         </DigitalClock>
-        <Group
-            name="hello_world"
-            height="450"
-            width="450"
-            x="0"
-            y="0">
-            <PartText
-                height="50"
-                width="450"
-                x="0"
-                y="285">
-                <Variant
-                    mode="AMBIENT"
-                    target="alpha"
-                    value="0" />
-                <Text>
-                    <Font
-                        color="#ffffffff"
-                        family="SYNC_TO_DEVICE"
-                        size="36">
-                        <Template>%s
-                            <Parameter expression="greeting" />
-                        </Template>
-                    </Font>
-                </Text>
-            </PartText>
-        </Group>
     </Scene>
 </WatchFace>
