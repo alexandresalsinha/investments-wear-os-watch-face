@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.type.watch" />
-    <!-- Note: hasCode is required to be false for Watch Face Format -->
+
     <application
-        android:hasCode="false"
+        android:hasCode="true"
         android:label="@string/watch_face_name">
         <meta-data
             android:name="com.google.android.wearable.standalone"
@@ -14,12 +16,24 @@
             android:name="com.google.wear.watchface.format.version"
             android:value="1" />
 
-        <!-- Optionally add details about the publisher. -->
-        <!--
-           <property
-          android:name="com.google.wear.watchface.format.publisher"
-          android:value="YourPublisherNameHere" />
-        -->
+        <service
+            android:name="com.example.mywatchface.BitcoinComplicationService"
+            android:exported="true"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="androidx.wear.watchface.complications.datasource.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+            <meta-data
+                android:name="androidx.wear.watchface.complications.datasource.SUPPORTED_TYPES"
+                android:value="SHORT_TEXT" />
+            <meta-data
+                android:name="androidx.wear.watchface.complications.datasource.UPDATE_PERIOD_SECONDS"
+                android:value="60" />
+        </service>
+
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
     </application>
 
 </manifest>

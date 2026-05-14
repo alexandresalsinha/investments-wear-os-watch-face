@@ -43,5 +43,25 @@
                     weight="THIN" />
             </TimeText>
         </DigitalClock>
+        <ComplicationSlot slotId="BITCOIN_PRICE"
+            x="0" y="220" width="450" height="32"
+            supportedTypes="SHORT_TEXT">
+            <BoundingBox x="0" y="0" width="450" height="32" />
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="SHORT_TEXT"
+                primaryProvider="com.example.mywatchface.BitcoinComplicationService"
+                primaryProviderType="SHORT_TEXT" />
+            <Complication type="SHORT_TEXT">
+                <PartText x="0" y="0" width="450" height="32">
+                    <Text>
+                        <Font family="SYNC_TO_DEVICE" size="22" color="#ffcccccc">
+                            <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
     </Scene>
 </WatchFace>

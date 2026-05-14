@@ -28,8 +28,17 @@ android {
             )
         }
     }
-    enableKotlin = false
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
+    implementation(libs.play.services.wearable)
+    implementation(libs.androidx.watchface.complications.data)
+    implementation(libs.androidx.watchface.complications.datasource)
+    implementation(libs.androidx.watchface.complications.datasource.ktx)
+    implementation(libs.kotlinx.coroutines.android)
 }
